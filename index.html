@@ -1,14 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Javascript</title>
+    <meta name="descripcion"
+        content="Somos especialistas en maquillaje y cuidados faciales, diseño de cejas y de pestañas">
+    <meta name="keywords" content="Maquillajes, limpieza faciales, lifting de cejas y pestañas, pestañas,
+    productos,cuidados faciales, ojos, diseño de cejas y pestañas">
+    <title>Document</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
-<body>
-    
 
+<body>
+
+        <div class="nav-container">
+            <nav class="navbar">
+                <a href="./index.html" class="navbar-logo">gerbeauty_</a>
+                <h1 class="ver-carrito" id="verCarrito">🛒 <span id="cantidadCarrito"
+                    class="cantidad-carrito"></span></h1>
+            </nav>
+        </div>
+
+        <div class="header-content-container">
+            <div class="header-info">
+                <div class="header-txt">
+                    <div data-aos="fade-down-right">
+                        <h1>Gerbeauty_</h1>
+                    </div>
+                    <h2>Especialista en Belleza</h2>
+                </div>
+            </div>
+        </div>
+
+    <div id="shopContent" class="shop-content"></div>
+    <div id="modal-container" class="modal-container"></div>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <div class="redes">
+                <a href="https://www.instagram.com/" target="_blank">
+                    <img class="img" src="./imagenes/footer/instagram.svg" alt="Logo Instagram">
+                </a>
+                <a href="https://es-la.facebook.com/" target="_blank">
+                    <img class="img" src="./imagenes/footer/facebook.svg" alt="Logo Facebook">
+                </a>
+                <a href="https://outlook.live.com/mail/about/index_es-mx.html" target="_blank">
+                    <img class="img" src="./imagenes/footer/envelope-at-fill.svg" alt="Logo Correo">
+                </a>
+                <a href="https://www.whatsapp.com/?lang=es" target="_blank">
+                    <img class="img" src="./imagenes/footer/whatsapp.svg" alt="Logo Whatsapp">
+                </a>
+                <a href="https://www.tiktok.com/es/" target="_blank">
+                    <img class="img" src="./imagenes/footer/tiktok.svg" alt="Logo Tiktok">
+                </a>
+                <a href="https://web.telegram.org/z/">
+                    <img class="img" src="./imagenes/footer/telegram.svg" alt="Logo Telegram">
+                </a>
+            </div>
+        </div>
+        <ul class="footer-menu-container">
+            <li class="menu-item">Legal</li>
+            <li class="menu-item">Cookies</li>
+            <li class="menu-item">Privacy</li>
+            <li class="menu-item">Terminos</li>
+        </ul>
+        <span class="copyright">&copy;2023, Gerbeauty_. Derechos Reservados</span>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+
+
+    <script src="./js/product.js"></script>
     <script src="./js/main.js"></script>
+    <script src="./js/carrito.js"></script>
 </body>
+
 </html>

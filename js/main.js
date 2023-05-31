@@ -1,68 +1,47 @@
-const productos = [
-    { nombre: "Paleta de Colores", precio: 20000 },
-    { nombre: "Bases", precio: 10000 },
-    { nombre: "Correctores", precio: 8500 },
-    { nombre: "Cejas", precio: 5000 },
-    { nombre: "Pestañas", precio: 6000 },
-];
-let misproductos = []
+const shopContent = document.getElementById("shopContent");
+const verCarrito = document.getElementById("verCarrito");
+const modalContainer = document.getElementById("modal-container");
+const cantidadCarrito = document.getElementById("cantidadCarrito");
 
-let seleccion = prompt("Hola, que tal? Deseas hacer una compra?")
+let carrito = [];
 
-while (seleccion != "si" && seleccion != "no") {
-    alert("por favor, ingresa si o no")
-    seleccion = prompt("Hola, que tal? Deseas hacer una compra?")
-}
+productos.forEach((product) => {
+    let content = document.createElement("div");
+    content.className = "card";
+    content.innerHTML = `
+     <img src="${product.img}">
+     <h3>${product.nombre}</h3>
+     <p class="price">${product.precio} $</p>
+    `;
 
-if (seleccion == "si") {
-    alert("Esta es la lista de nuestros productos")
-    let todoslosproductos = productos.map(
-        (producto) => producto.nombre + " " + producto.precio + "$");
-    alert(todoslosproductos.join(" - "))
-} else if (seleccion == "no") {
-    alert("Muchas Gracias, Esperamos verte pronto!!")
-}
+    shopContent.append(content);
 
-while (seleccion != "no") {
-    let producto = prompt("Agrega un Producto")
-    let precio = 0
+    let comprar = document.createElement("button");
+    comprar.innerText = "comprar";
+    comprar.className = "comprar";
 
-    if (producto == "Paleta de Colores" || producto == "Bases" || producto == "Correctores" || producto == "Cejas" || producto == "Pestañas") {
-        switch (producto) {
-            case "Paleta de Colores":
-                precio = 20000;
-                break;
-            case "Bases":
-                precio = 10000;
-                break;
-            case "Correctores":
-                precio = 8500;
-                break;
-            case "Cejas":
-                precio = 5000;
-                break;
-            case "Pestañas":
-                precio = 6000;
-                break;
-        } 
-        let unidades = parseInt (prompt("Indique la cantidad de Unidades"))
+    content.append(comprar);
 
-        misproductos.push({producto, unidades, precio})
-        console.log(misproductos)
-    } else {
-        alert("Lo sentimos, no contamos con este producto")
-    }
-    seleccion = prompt("Deseas agregar otro producto?")
+    comprar.addEventListener("click", () => {
+        const repeat = carrito.some((repeatProduct) => repeatProduct.id === product.id);
 
-    while(seleccion === "no"){
-        alert("Muchas gracias por tu compra, esperamos verte pronto!!")
-        misproductos.forEach((misproductosFinal) => {
-            console.log(`producto: ${misproductosFinal.producto}, unidades: ${misproductosFinal.unidades},
-            total a pagar ${misproductosFinal.unidades * misproductosFinal.precio}`)
-        })
-        break;
-    }
-}
+        if (repeat) {
+            carrito.map((prod) => {
+                if (prod.id === prod.id) {
+                    prod.cantidad++;
+                }
+            });
+        } else {
 
-const total = misproductos.reduce((acc, el) => acc + el.precio * el.unidades, 0)
-console.log(`Gracias por tu compra. El total de tus Productos es: ${total}`)
+            carrito.push({
+                id: product.id,
+                img: product.img,
+                nombre: product.nombre,
+                precio: product.precio,
+                cantidad: product.cantidad,
+            });
+        }
+        console.log(carrito);
+        carritoCounter();
+    });
+});
