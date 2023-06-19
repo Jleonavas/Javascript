@@ -226,7 +226,7 @@ header .header-txt .h1 .h2 .masinfo {
     cursor: pointer;
 }
 
-.modal-container .modal-content {
+.modal-container > .modal-content {
     display: flex;
     flex-direction: row;
     justify-content: space-around;

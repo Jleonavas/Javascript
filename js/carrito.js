@@ -27,16 +27,30 @@ const noticarrito = () => {
         <p>${product.precio} $</p>
         <p>Cantidad: ${product.cantidad}</p>
         <p>Total: ${product.cantidad * product.precio}</p>
+        <span class="delete-product"> ❌ </span>
         `;
 
         modalContainer.append(carritoContent);
 
-        let eliminar = document.createElement("span");
-        eliminar.innerText = "❌";
-        eliminar.className = "delete-product";
-        carritoContent.append(eliminar);
+        let eliminar = carritoContent.querySelector(".delete-product");
 
-        eliminar.addEventListener("click", eliminarProducto);  
+        eliminar.addEventListener("click", ()=> {
+            eliminarProducto(product.id);
+            
+        Toastify({
+            text: "Producto Eliminado",
+            duration: 3000,
+            newWindow: true,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "left", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+              background: "linear-gradient(to right, #ffc107,#8b4513 )",
+            },
+            onClick: function(){} // Callback after click
+          }).showToast();
+        }) 
 
     });
 
@@ -50,8 +64,8 @@ const noticarrito = () => {
 
 verCarrito.addEventListener("click", noticarrito);
 
-const eliminarProducto = () => {
-    const foundId = carrito.find((Element) => Element.id);
+const eliminarProducto = (id) => {
+    const foundId = carrito.find((Element) => Element.id === id);
 
     carrito = carrito.filter((carritoId) => {
         return carritoId !== foundId;
